@@ -12,4 +12,13 @@ By default the Vapor server starts on 127.0.0.1:8080. You should use a reverse p
 ### Configuration
 In `main.swift` put the file download path you like into `downloadCache` (by default the files are downloaded to the build folder with the binary files)
 
-    
+## Usage
+This can be used with [iOS Shortcut](https://www.icloud.com/shortcuts/32c181f481e149a7934b3b3f94216d32) or directly: 
+* GET `/getQualities`:
+* * `link` - link to youtube video
+* * Returns: video title and possible `fmtString` values separated by `\`
+* GET `/download`:
+* * `link` - link to youtube video
+* * `format` - fmtString value received from previous endpoint
+* * Header `fileName` will force file name to be what specified (used in the shortcut), by default `download.mp4`
+* * Returns: mp4 file with AVC video and AAC audio (for compatibility with iOS devices)
